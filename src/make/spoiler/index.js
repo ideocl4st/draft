@@ -60,8 +60,8 @@ function go(values) {
       Cards[lc] = card
   }
 
-  if (!set.special.length)
-    delete set.special
+//  if (!set.special.length)
+//    delete set.special
 
   fs.writeFileSync('data/cards.json', JSON.stringify(Cards, null, 2))
   fs.writeFileSync('data/sets.json' , JSON.stringify(Sets , null, 2))

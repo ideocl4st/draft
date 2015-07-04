@@ -59,7 +59,7 @@ module.exports = class Game extends Room {
   }
 
   renew() {
-    this.expires = Date.now() + HOUR
+    this.expires = Date.now() + (2*HOUR)
   }
 
   name(name, sock) {

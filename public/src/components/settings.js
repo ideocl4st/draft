@@ -47,21 +47,21 @@ function Download() {
   let select = d.select({ valueLink: App.link('filetype') }, filetypes)
 
   return d.div({},
-    d.button({ onClick: App._emit('download') }, 'download'),
-    d.input({ placeholder: 'filename', valueLink: App.link('filename') }),
+    d.button({ onClick: App._emit('download') }, '다운로드'),
+    d.input({ placeholder: '파일명', valueLink: App.link('filename') }),
     select)
 }
 
 export default React.createClass({
   render() {
     return d.div({ id: 'settings' },
-      RBox('chat', 'chat'),
+      RBox('chat', '채팅'),
       Lands(),
       Download(),
       this.Copy(),
       this.Side(),
-      RBox('beep', 'beep for new packs'),
-      RBox('cols', 'column view'),
+      RBox('beep', '새 팩이 오면 소리로 알림'),
+      RBox('cols', '뽑은 카드 이름 및 발동비용만 보기 (MTGO식)'),
       Sort())
   },
   SideCB(e) {
@@ -72,7 +72,7 @@ export default React.createClass({
   Side() {
     return d.div({},
       d.label({},
-        'add cards to side ',
+        '카드를 사이드보드에 넣기 ',
         d.input({
           checked: App.state.side,
           onChange: this.SideCB,
@@ -81,13 +81,14 @@ export default React.createClass({
   },
   Copy() {
     return d.div({},
-      d.button({
-        onClick: App._emit('copy', this.refs.decklist)
-      }, 'copy'),
       d.textarea({
-        placeholder: 'decklist',
+        placeholder: '덱 리스트',
         ref: 'decklist',
         readOnly: true
-      }))
+      }),
+      d.button({
+        onClick: App._emit('copy', this.refs.decklist)
+      }, '복사') 
+      )
   }
 })

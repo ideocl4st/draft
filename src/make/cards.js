@@ -169,14 +169,36 @@ function doCard(rawCard, cards, code, set) {
     colors.length > 1 ? 'multicolor' :
     colors[0].toLowerCase()
 
-  cards[name] = { color, name,
-    type: rawCard.types[rawCard.types.length - 1],
-    cmc: rawCard.cmc || 0,
-    sets: {
-      [code]: { rarity,
-        url: `http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=${rawCard.multiverseid}&type=card`
+  if (/^(DTK|FRF|KTK|M15|JOU|BNG|THS|M14|DGM|GTC|RTR|M13|AVR|DKA)$/.test(code)) {
+    cards[name] = { color, name,
+      type: rawCard.types[rawCard.types.length - 1],
+      cmc: rawCard.cmc || 0,
+      sets: {
+        [code]: { rarity,
+          url: `http://magiccards.info/scans/ko/${code.toLowerCase()}/${rawCard.number}.jpg`
+        }
       }
     }
+  } else if (/^(M12|ISD)$/.test(code)) {
+    cards[name] = { color, name,
+      type: rawCard.types[rawCard.types.length - 1],
+      cmc: rawCard.cmc || 0,
+      sets: {
+        [code]: { rarity,
+          url: `http://mtgdraft.mooo.com/ko/${code.toLowerCase()}/${rawCard.number}.jpg`
+        }
+      }
+    }
+  } else {
+    cards[name] = { color, name,
+      type: rawCard.types[rawCard.types.length - 1],
+      cmc: rawCard.cmc || 0,
+      sets: {
+        [code]: { rarity,
+          url: `http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=${rawCard.multiverseid}&type=card`
+        }
+      }
+    }    
   }
 
   set[rarity].push(name.toLowerCase())

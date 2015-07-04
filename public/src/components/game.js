@@ -53,7 +53,7 @@ export default React.createClass({
 
     return d.div({},
       d.div({},
-        d.button({ onClick: App._emit('start') }, 'start')),
+        d.button({ onClick: App._emit('start') }, '시작')),
       LBox('bots', 'bots'),
       LBox('timer', 'timer'))
   },
@@ -62,11 +62,11 @@ export default React.createClass({
     return d.table({ id: 'players' },
       d.tr({},
         d.th({}, '#'),
-        d.th({}, 'name'),
-        d.th({}, 'packs'),
-        d.th({}, 'time'),
-        d.th({}, 'cock'),
-        d.th({}, 'mws')),
+        d.th({}, '이름'),
+        d.th({}, '밀린 팩'),
+        d.th({}, '남은 시간'),
+        d.th({}, '코카트리스 해시값'),
+        d.th({}, 'MWS 해시값')),
       rows)
   }
 })

@@ -11,6 +11,9 @@ function parse() {
     .toLowerCase()
   let url = $el.attr('src')
 
+//Uncomment for sets with Korean cards
+  .replace('en', "kr")
+
   images[name] = url
 }
 

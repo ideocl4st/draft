@@ -56,7 +56,7 @@ export default React.createClass({
     return d.input({
       ref: 'entry',
       onKeyDown: this.key,
-      placeholder: '/nick name'
+      placeholder: '닉변은 /nick (이름)'
     })
   },
 
@@ -88,16 +88,16 @@ export default React.createClass({
         let name = arg.slice(0, 15)
 
         if (!name) {
-          text = 'enter a name'
+          text = '이름을 입력하세요'
           break
         }
 
-        text = `hello, ${name}`
+        text = `이제부터 당신의 이름은 ${name} 입니다.`
         App.save('name', name)
         App.send('name', name)
         break
       default:
-        text = `unsupported command: ${command}`
+        text = `지원하지 않는 명령어 입니다: ${command}`
     }
 
     this.state.messages.push({ text,
