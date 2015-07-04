@@ -8,6 +8,7 @@ function parse() {
 
   let name = $el.attr('alt')
     .replace('’', "'")
+    .replace('Æ', "AE")
     .toLowerCase()
   let url = $el.attr('src')
 

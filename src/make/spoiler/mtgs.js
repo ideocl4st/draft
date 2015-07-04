@@ -22,6 +22,7 @@ function parse() {
     return
 
   let name = $el.attr('id')
+    .replace('Æ', 'AE')
   let lc = name.toLowerCase()
   let url = images[lc]
   if (!url)
