@@ -69,7 +69,6 @@ export default {
     "Arabian Nights": "ARN"
   },
   core: {
-    "매직의 기원": "ORI",
     "매직 2015 코어 세트": "M15",
     "매직 2014 코어 세트": "M14",
     "매직 2013": "M13",
@@ -89,6 +88,7 @@ export default {
     "Limited Edition Alpha": "LEA"
   },
   other: {
+    "매직의 기원": "ORI",
     "Modern Masters 2015": "MM2",
     "Tempest Remastered": "TPR",
     "Conspiracy": "CNS",
