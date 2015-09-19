@@ -15,9 +15,9 @@ export default React.createClass({
       d.div({},
         d.small({}, '생성된 로비는 2시간 이후 자동 폭파됩니다.')),
       d.div({},
-        d.small({}, '채팅은 생성된 로비 내부에서만 가능합니다.')),      
+        d.small({}, '채팅은 생성된 로비 내부에서만 가능합니다.')),
       d.div({},
-        d.small({}, '봇은 인공지능이 없다시피 하니 드랩하실때 참고하시기 바랍니다.')),      
+        d.small({}, '봇은 인공지능이 없다시피 하니 드랩하실때 참고하시기 바랍니다.')),
       d.p({ className: 'error' }, App.err),
       Create(),
       d.footer({},
@@ -74,7 +74,7 @@ function content() {
     case 'sealed': return [setsTop, setsBot]
     case 'cube draft' : return [cube, cubeDraft]
     case 'cube sealed': return cube
-    case 'editor': return d.a({ href: 'http://editor.drafts.in' }, 'editor')
+//    case 'editor': return d.a({ href: 'http://editor.drafts.in' }, 'editor')
   }
 }
 
@@ -82,7 +82,8 @@ function Create() {
   let seats = _.seq(8, 2).map(x =>
     d.option({}, x))
 
-  let types = ['draft', 'sealed', 'cube draft', 'cube sealed', 'editor']
+  let types = ['draft', 'sealed', 'cube draft', 'cube sealed']
+//  let types = ['draft', 'sealed', 'cube draft', 'cube sealed', 'editor']
     .map(type =>
       d.button({
         disabled: type === App.state.type,
