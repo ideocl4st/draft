@@ -53,6 +53,10 @@ function before() {
   // Each sample deck has several cards numbered 270 and higher that do not
   // appear in Magic 2015 booster packs.
   raw.M15.cards = raw.M15.cards.filter(x => parseInt(x.number) < 270)
+  //http://mtgsalvation.gamepedia.com/Magic_Origins/Sample_decks
+  // Each sample deck has several cards numbered 273 and higher that do not
+  // appear in Magic Origins booster packs.
+  raw.ORI.cards = raw.ORI.cards.filter(x => parseInt(x.number) < 273)
 }
 
 function after() {
