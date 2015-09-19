@@ -1,5 +1,6 @@
 export default {
   expansion: {
+    "젠디카르 전투": "BFZ",
     "타르커의 용": "DTK",
     "재창조된 운명": "FRF",
     "타르커의 칸": "KTK",
