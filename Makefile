@@ -1,4 +1,4 @@
-all: install clean cards score js
+all: install clean cards score spoiler js
 
 node := ${CURDIR}/node_modules
 
@@ -21,6 +21,9 @@ cards: data/AllSets.json
 
 custom:
 	node src/make custom
+
+spoiler:
+	node src/make spoiler
 
 data/AllSets.json:
 	curl -so data/AllSets.json http://mtgjson.com/json/AllSets.json
