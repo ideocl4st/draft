@@ -172,29 +172,18 @@ function doCard(rawCard, cards, code, set) {
     colors.length > 1 ? 'multicolor' :
     colors[0].toLowerCase()
 
-  for(var i = 0; i < rawCard.length; i++)
-  {
-    if(rawCard[i].foreignNames.language == "Korean")
-    {
-      var multiId = rawCard[i].foreignNames.multiverseid;
-    }
-    else
-    {
-      var multiId = rawCard[i].multiverseid;
+  // If Korean version of the card exists, use that image instead.
+  var {foreignNames} = rawCard
+  var multiId = rawCard.multiverseid
+  if(typeof foreignNames != 'undefined')  {
+    for(var i = 0; i < foreignNames.length; i++)  {
+      if(foreignNames[i].language == "Korean")  {
+        var multiId = foreignNames[i].multiverseid;
+      }
     }
   }
 
-  if (/^(ORI|DTK|FRF|KTK|M15|JOU|BNG|THS|M14|DGM|GTC|RTR|M13|AVR|DKA)$/.test(code)) {
-    cards[name] = { color, name,
-      type: rawCard.types[rawCard.types.length - 1],
-      cmc: rawCard.cmc || 0,
-      sets: {
-        [code]: { rarity,
-          url: `http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=${rawCard.multiverseid}&type=card`
-        }
-      }
-    }
-  } else if (/^(M12|ISD)$/.test(code)) {
+  if (/^(M12|ISD)$/.test(code)) {
     cards[name] = { color, name,
       type: rawCard.types[rawCard.types.length - 1],
       cmc: rawCard.cmc || 0,
@@ -210,7 +199,7 @@ function doCard(rawCard, cards, code, set) {
       cmc: rawCard.cmc || 0,
       sets: {
         [code]: { rarity,
-          url: `http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=${rawCard.multiverseid}&type=card`
+          url: `http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=${multiId}&type=card`
         }
       }
     }

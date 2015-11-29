@@ -22,7 +22,7 @@ cards: data/AllSets-x.json
 custom:
 	node src/make custom
 
-data/AllSets.json:
+data/AllSets-x.json:
 	curl -so data/AllSets-x.json http://mtgjson.com/json/AllSets-x.json
 
 score:
