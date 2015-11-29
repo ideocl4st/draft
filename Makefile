@@ -14,16 +14,16 @@ install:
 	ln -sf ${node}/utils/utils.js public/lib
 
 clean:
-	rm -f data/AllSets.json
+	rm -f data/AllSets-x.json
 
-cards: data/AllSets.json
+cards: data/AllSets-x.json
 	node src/make cards
 
 custom:
 	node src/make custom
 
 data/AllSets.json:
-	curl -so data/AllSets.json http://mtgjson.com/json/AllSets.json
+	curl -so data/AllSets-x.json http://mtgjson.com/json/AllSets-x.json
 
 score:
 	-node src/make score #ignore errors

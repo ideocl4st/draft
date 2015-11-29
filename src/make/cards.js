@@ -172,13 +172,25 @@ function doCard(rawCard, cards, code, set) {
     colors.length > 1 ? 'multicolor' :
     colors[0].toLowerCase()
 
+  for(var i = 0; i < rawCard.length; i++)
+  {
+    if(rawCard[i].foreignNames.language == "Korean")
+    {
+      var multiId = rawCard[i].foreignNames.multiverseid;
+    }
+    else
+    {
+      var multiId = rawCard[i].multiverseid;
+    }
+  }
+
   if (/^(ORI|DTK|FRF|KTK|M15|JOU|BNG|THS|M14|DGM|GTC|RTR|M13|AVR|DKA)$/.test(code)) {
     cards[name] = { color, name,
       type: rawCard.types[rawCard.types.length - 1],
       cmc: rawCard.cmc || 0,
       sets: {
         [code]: { rarity,
-          url: `http://magiccards.info/scans/ko/${code.toLowerCase()}/${rawCard.number}.jpg`
+          url: `http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=${rawCard.multiverseid}&type=card`
         }
       }
     }
