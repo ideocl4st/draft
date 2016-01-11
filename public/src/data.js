@@ -1,5 +1,6 @@
 export default {
   expansion: {
+    "관문수호대의 맹세": "OGW",
     "젠디카르 전투": "BFZ",
     "타르커의 용": "DTK",
     "재창조된 운명": "FRF",
